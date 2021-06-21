@@ -1,2 +1,2 @@
 import './tailwind.css';
-import './script'
+import './script';
