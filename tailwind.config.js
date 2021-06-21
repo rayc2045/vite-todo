@@ -15,10 +15,12 @@ module.exports = {
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      // @media (min-width: 1920px) { ... }
     },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      honey: '#FFD370',
 
       black: colors.black,
       white: colors.white,
