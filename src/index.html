@@ -5,13 +5,45 @@
     <link rel="icon" type="image/svg+xml" href="./src/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite Todo</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div class="container">
-      
+  <body
+    class="min-h-screen flex justify-center text-gray-800 bg-honey"
+    style="font-size: 18px"
+  >
+    <!-- <img class="TODO: fixed w-full" style="opacity: 0.8; pointer-events: none" src="./demo.png" /> -->
+    <div class="mt-20" style="width: 566px;">
+      <h1
+        class="mb-12 uppercase text-center text-5xl font-bold"
+        style="font-family: 'Baloo Tamma 2', sans-serif; letter-spacing: 13px"
+      >
+        Todo List
+      </h1>
 
+      <div class="mb-4 pr-1 flex items-center bg-white rounded-xl overflow-hidden">
+        <input id="task-input" class="pl-7 py-3 flex-grow tracking-wide focus:outline-none" type="text" name="" placeholder="新增待辦事項" autofocus/>
+        <button class="w-12 h-12 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
+      </div>
+
+      <div class="bg-white rounded-lg overflow-hidden">
+        <ul class="flex text-center">
+          <li class="py-3 flex-1 border-b-2 border-black cursor-pointer">全部</li>
+          <li class="py-3 flex-1 text-gray-300 border-b-2 border-transparent cursor-pointer">待完成</li>
+          <li class="py-3 flex-1 text-gray-300 border-b-2 border-transparent cursor-pointer">已完成</li>
+        </ul>
+
+        <ul id="task-content"></ul>
+
+        <div class="flex justify-between text-base">
+          <p class="py-4"><span id="task-num"></span> 個待完成項目</p>
+          <button class="py-4 text-gray-300 transition hover:text-black focus:outline-none">清除已完成項目</button>
+        </div>
+      </div>
     </div>
-
     <script type="module" src="/main.js"></script>
   </body>
 </html>
