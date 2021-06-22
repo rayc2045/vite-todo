@@ -1,8 +1,10 @@
 'use strict';
 
-const taskContentEl = document.querySelector('#task-content');
-const taskNumEl = document.querySelector('#task-num');
-const deleteBtn = document.querySelector('#delete');
+const taskInputEl = document.querySelector('#task-input');
+const addTaskBtn = document.querySelector('#add-task');
+const tasksEl = document.querySelector('#tasks');
+const unfinishedTaskNumEl = document.querySelector('#unfinished-task-num');
+const clearFinishedTasksBtn = document.querySelector('#clear-finished-tasks');
 const tasks = [
   {
     task: '把冰箱發霉的檸檬拿去丟',
@@ -49,8 +51,8 @@ function updateTask() {
     if (!task.completed) unfinishedTaskNum++;
   });
 
-  taskContentEl.innerHTML = tasksHTML;
-  taskNumEl.textContent = unfinishedTaskNum;
+  tasksEl.innerHTML = tasksHTML;
+  unfinishedTaskNumEl.textContent = unfinishedTaskNum;
 }
 
 function getTaskHTML(id) {
