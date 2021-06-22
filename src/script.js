@@ -2,33 +2,34 @@
 
 const taskContentEl = document.querySelector('#task-content');
 const taskNumEl = document.querySelector('#task-num');
+const deleteBtn = document.querySelector('#delete');
 const tasks = [
   {
-    content: '把冰箱發霉的檸檬拿去丟',
+    task: '把冰箱發霉的檸檬拿去丟',
     completed: false,
   },
   {
-    content: '打電話叫媽媽匯款給我',
+    task: '打電話叫媽媽匯款給我',
     completed: true,
   },
   {
-    content: '整理電腦資料夾',
+    task: '整理電腦資料夾',
     completed: false,
   },
   {
-    content: '繳電費水費瓦斯費',
+    task: '繳電費水費瓦斯費',
     completed: true,
   },
   {
-    content: '刪訊息',
+    task: '刪訊息',
     completed: false,
   },
   {
-    content: '約 Vicky 禮拜三泡溫泉',
+    task: '約 Vicky 禮拜三泡溫泉',
     completed: false,
   },
   {
-    content: '約 Ada 禮拜四吃晚餐',
+    task: '約 Ada 禮拜四吃晚餐',
     completed: false,
   },
 ];
@@ -67,7 +68,7 @@ function getTaskHTML(id) {
         } focus:outline-none"
 				style="padding: 19px 0;"
 				contentEditable>
-				${tasks[id].content}
+				${tasks[id].task}
 			</span>
 			<button id="delete" class="text-gray-500 focus:outline-none">
 				✕
