@@ -12,10 +12,9 @@
     />
   </head>
   <body
-    class="min-h-screen flex justify-center text-gray-800 bg-honey"
-    style="font-size: 18px"
+    class="min-h-screen flex justify-center text-gray-700 tracking-wider bg-honey"
+    style="font-size: 18px; background: linear-gradient(171deg, #ffd370 54%, white 46%)"
   >
-    <!-- <img class="TODO: fixed w-full" style="opacity: 0.8; pointer-events: none" src="./demo.png" /> -->
     <div class="mt-20" style="width: 566px;">
       <!-- Title -->
       <h1
@@ -26,10 +25,10 @@
       </h1>
       <!-- Input -->
       <div
-        class="mb-3 pr-1 flex items-center bg-white rounded-xl overflow-hidden shadow-2xl"
+        class="mb-3 flex items-center bg-white rounded-xl overflow-hidden shadow-2xl"
       >
-        <input id="task-input" class="pl-7 py-3 flex-grow tracking-wide focus:outline-none" type="text" name="" placeholder="新增待辦事項" autofocus/>
-        <button id="add-task" class="w-11 h-11 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
+        <input id="task-input" class="pl-7 py-3 flex-grow focus:outline-none placeholder-gray-400" type="text" name="" placeholder="新增待辦事項" autofocus/>
+        <button id="add-task" class="mr-1 w-11 h-11 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
       </div>
       <!-- Tasks -->
       <div class="bg-white rounded-xl overflow-hidden shadow-2xl">
@@ -39,11 +38,11 @@
           <li class="py-4 flex-grow cursor-pointer filter-inactive">已完成</li>
         </ul>
 
-        <ul id="tasks"></ul>
+        <ul id="tasks" class="px-4 py-1"></ul>
 
         <div class="flex justify-between text-base">
-          <p class="py-4"><span id="unfinished-task-num"></span> 個待完成項目</p>
-          <button id="clear-finished-tasks" class="py-4 text-gray-300 transition hover:text-black focus:outline-none">清除已完成項目</button>
+          <p class="px-7 py-6 pb-8"><span id="unfinished-task-num"></span> 個待完成項目</p>
+          <button id="clear-finished-tasks" class="px-7 py-6 pb-8 pr-16 text-gray-300 transition hover:text-black focus:outline-none">清除已完成項目</button>
         </div>
       </div>
     </div>
