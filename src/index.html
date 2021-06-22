@@ -26,7 +26,7 @@
 
       <div class="mb-4 pr-1 flex items-center bg-white rounded-xl overflow-hidden">
         <input id="task-input" class="pl-7 py-3 flex-grow tracking-wide focus:outline-none" type="text" name="" placeholder="新增待辦事項" autofocus/>
-        <button class="w-12 h-12 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
+        <button id="add-task" class="w-12 h-12 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
       </div>
 
       <div class="bg-white rounded-lg overflow-hidden">
@@ -36,11 +36,11 @@
           <li class="py-3 flex-1 text-gray-300 border-b-2 border-transparent cursor-pointer">已完成</li>
         </ul>
 
-        <ul id="task-content"></ul>
+        <ul id="tasks"></ul>
 
         <div class="flex justify-between text-base">
-          <p class="py-4"><span id="task-num"></span> 個待完成項目</p>
-          <button class="py-4 text-gray-300 transition hover:text-black focus:outline-none">清除已完成項目</button>
+          <p class="py-4"><span id="unfinished-task-num"></span> 個待完成項目</p>
+          <button id="clear-finished-tasks" class="py-4 text-gray-300 transition hover:text-black focus:outline-none">清除已完成項目</button>
         </div>
       </div>
     </div>
