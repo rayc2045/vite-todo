@@ -125,7 +125,7 @@ function getTaskHTML(id) {
   return `
     <li id="${id}" class="flex items-center">
       <input
-        id="check" class="ml-3 w-6 h-6 cursor-pointer focus:outline-none focus:border-yellow-500" type="checkbox"${
+        id="check" class="ml-3 w-6 h-6 cursor-pointer outline-none" type="checkbox"${
           tasks[id].completed ? ' checked' : ''
         }
       >
