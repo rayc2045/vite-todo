@@ -87,6 +87,22 @@ tasksEl.onclick = e => {
   }
 };
 
+// Clear finished
+clearFinishedTasksBtn.onclick = () => {
+  if (confirm('確定移除完成的任務？')) {
+    let filter = filterEls.filter(el =>
+      el.classList.contains('filter-active')
+    )[0].textContent;
+
+    clearFinishedTasks();
+
+    if (filter === '已完成') {
+      updateFilterState();
+      updateTasks();
+    }
+  }
+};
+
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Functions ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////
@@ -167,4 +183,8 @@ function toggleCompleteTask(e) {
 function deleteTask(e) {
   const idx = e.target.closest('li').id;
   tasks.splice(idx, 1);
+}
+
+function clearFinishedTasks() {
+  tasks = tasks.filter(task => !task.completed);
 }
