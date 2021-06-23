@@ -47,9 +47,7 @@ taskInputEl.onkeydown = e => {
     let filter = getCurrentFilter();
     if (filter === '已完成') filter = '全部';
     addTask();
-    updateFilterState(filter);
-    updateTasks(filter);
-    updateUnfinishedTaskNum();
+    updateBoard(filter);
   }
 };
 
@@ -57,17 +55,14 @@ addTaskBtn.onclick = () => {
   let filter = getCurrentFilter();
   if (filter === '已完成') filter = '全部';
   addTask();
-  updateFilterState(filter);
-  updateTasks(filter);
-  updateUnfinishedTaskNum();
+  updateBoard(filter);
 };
 
 // Update filter state/tasks
 filtersEl.onclick = e => {
   if (e.target.classList.contains('filter-inactive')) {
     const filter = e.target.textContent;
-    updateFilterState(filter);
-    updateTasks(filter);
+    updateBoard(filter);
   }
 };
 
@@ -77,17 +72,13 @@ tasksEl.onclick = e => {
     toggleCompleteTask(e);
     let filter = getCurrentFilter();
     if (!getUnfinishedTaskNum()) filter = '全部';
-    updateFilterState(filter);
-    updateTasks(filter);
-    updateUnfinishedTaskNum();
+    updateBoard(filter);
   }
   if (e.target.id === 'delete') {
     if (confirm('確定刪除？')) deleteTask(e);
     let filter = getCurrentFilter();
     if (!getUnfinishedTaskNum()) filter = '全部';
-    updateFilterState(filter);
-    updateTasks(filter);
-    updateUnfinishedTaskNum();
+    updateBoard(filter);
   }
 };
 
@@ -103,6 +94,12 @@ clearFinishedTasksBtn.onclick = () => {
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Functions ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////
+
+function updateBoard(filter = '全部') {
+  updateFilterState(filter);
+  updateTasks(filter);
+  updateUnfinishedTaskNum();
+}
 
 function updateTasks(filter = '全部') {
   let tasksHTML = '';
