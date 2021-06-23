@@ -81,8 +81,11 @@ tasksEl.onclick = e => {
   if (e.target.id === 'delete') {
     if (confirm('確定刪除？')) deleteTask(e);
     let filter = getCurrentFilter();
-    if (filter === '待完成' && !getUnfinishedTaskNum())
-    if (getUnfinishedTaskNum() === tasks.length) filter = '全部';//FIXME:待完成？
+    if (
+      (filter === '待完成' && !getUnfinishedTaskNum()) ||
+      (filter === '已完成' && getUnfinishedTaskNum() === tasks.length)
+    )
+      filter = '全部';
     updateBoard(filter);
   }
 };
