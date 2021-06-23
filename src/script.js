@@ -129,7 +129,7 @@ function getTaskHTML(id) {
       }" style="padding: 18px 0;">
         ${tasks[id].task}
       </label>
-      <button id="delete" class="ml-2 p-3 text-2xl text-gray-400 focus:outline-none">
+      <button id="delete" class="ml-2 p-3 text-2xl text-gray-400 lg:text-transparent focus:outline-none">
         ✕
       </button>
     </li>
