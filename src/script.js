@@ -5,7 +5,7 @@ const addTaskBtn = document.querySelector('#add-task');
 const tasksEl = document.querySelector('#tasks');
 const unfinishedTaskNumEl = document.querySelector('#unfinished-task-num');
 const clearFinishedTasksBtn = document.querySelector('#clear-finished-tasks');
-const tasks = [
+let tasks = [
   {
     task: '把冰箱發霉的檸檬拿去丟',
     completed: false,
@@ -36,45 +36,64 @@ const tasks = [
   },
 ];
 
-updateTask();
+updateTasks();
+updateUnfinishedTaskNum();
+
+// Add task
+taskInputEl.onkeydown = e => {
+  if (e.key === 'Enter') {
+    addTask();
+    updateTasks();
+    updateUnfinishedTaskNum();
+  }
+};
+
+addTaskBtn.onclick = () => {
+  addTask();
+  updateTasks();
+  updateUnfinishedTaskNum();
+};
 
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Functions ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 
-function updateTask() {
+function updateTasks() {
   let tasksHTML = '';
-  let unfinishedTaskNum = 0;
-
-  tasks.forEach((task, idx) => {
-    tasksHTML += getTaskHTML(idx);
-    if (!task.completed) unfinishedTaskNum++;
-  });
-
+  for (const i in tasks) tasksHTML += getTaskHTML(i);
   tasksEl.innerHTML = tasksHTML;
-  unfinishedTaskNumEl.textContent = unfinishedTaskNum;
 }
 
 function getTaskHTML(id) {
   return `
 		<li id="${id}" class="flex items-center">
-			<label>
-				<input
-					type="checkbox" ${tasks[id].completed ? 'checked' : ''}
-					class="text-black bg:text-black cursor-pointer focus:outline-none"
-				>
+			<label class="ml-3">
+				<input id="check" class="mt-1 w-6 h-6 cursor-pointer focus:outline-none" type="checkbox" ${
+          tasks[id].completed ? 'checked' : ''
+        }>
 			</label>
-			<span
-				class="border-b-2 flex-grow cursor-text${
-          tasks[id].completed ? ' text-gray-300 line-through' : ''
-        } focus:outline-none"
-				style="padding: 19px 0;"
-				contentEditable>
+			<span id="content" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none ${
+        tasks[id].completed ? ' text-gray-300 line-through' : ''
+      }" style="padding: 18px 0;">
 				${tasks[id].task}
 			</span>
-			<button id="delete" class="text-gray-500 focus:outline-none">
+			<button id="delete" class="ml-2 p-3 text-2xl text-gray-400 focus:outline-none ">
 				✕
 			</button>
 		</li>
 	`;
+}
+
+function updateUnfinishedTaskNum() {
+  unfinishedTaskNumEl.textContent = tasks.filter(
+    task => !task.completed
+  ).length;
+}
+
+function addTask() {
+  const inputText = taskInputEl.value.trim();
+  if (!inputText) return;
+  tasks = [...tasks, { task: inputText, completed: false }];
+  taskInputEl.value = '';
+  taskInputEl.focus();
 }
