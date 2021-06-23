@@ -2,6 +2,8 @@
 
 const taskInputEl = document.querySelector('#task-input');
 const addTaskBtn = document.querySelector('#add-task');
+const filtersEl = document.querySelector('#filters');
+const filterEls = [...filtersEl.childNodes].filter(el => el.nodeName === 'LI');
 const tasksEl = document.querySelector('#tasks');
 const unfinishedTaskNumEl = document.querySelector('#unfinished-task-num');
 const clearFinishedTasksBtn = document.querySelector('#clear-finished-tasks');
@@ -54,13 +56,38 @@ addTaskBtn.onclick = () => {
   updateUnfinishedTaskNum();
 };
 
+// Update filter state/tasks
+filtersEl.onclick = e => {
+  if (e.target.classList.contains('filter-inactive')) {
+    const filter = e.target.textContent;
+    updateFilterState(filter);
+    updateTasks(filter);
+  }
+};
+
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Functions ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////
 
-function updateTasks() {
+function updateTasks(filter = '全部') {
   let tasksHTML = '';
-  for (const i in tasks) tasksHTML += getTaskHTML(i);
+
+  if (filter === '全部') {
+    for (const i in tasks) tasksHTML += getTaskHTML(i);
+  }
+
+  if (filter === '待完成') {
+    for (const i in tasks) {
+      if (!tasks[i].completed) tasksHTML += getTaskHTML(i);
+    }
+  }
+
+  if (filter === '已完成') {
+    for (const i in tasks) {
+      if (tasks[i].completed) tasksHTML += getTaskHTML(i);
+    }
+  }
+
   tasksEl.innerHTML = tasksHTML;
 }
 
@@ -82,6 +109,18 @@ function getTaskHTML(id) {
 			</button>
 		</li>
 	`;
+}
+
+function updateFilterState(filter = '全部') {
+  filterEls.forEach(el => {
+    if (el.textContent === filter) {
+      el.classList.remove('filter-inactive');
+      el.classList.add('filter-active');
+    } else {
+      el.classList.remove('filter-active');
+      el.classList.add('filter-inactive');
+    }
+  });
 }
 
 function updateUnfinishedTaskNum() {
