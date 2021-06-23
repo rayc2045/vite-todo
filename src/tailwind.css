@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  [type="checkbox"],
-  [type="radio"] {
-    @apply rounded-lg text-honey border-gray-500 focus:ring-0;
+  [type="checkbox"] {
+    @apply w-6 h-6 rounded-lg text-honey border-gray-500 cursor-pointer focus:ring-0;
   }
 }
 

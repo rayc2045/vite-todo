@@ -124,11 +124,9 @@ function updateTasks(filter = '全部') {
 function getTaskHTML(id) {
   return `
     <li id="${id}" class="flex items-center">
-      <input
-        id="check" class="ml-3 w-6 h-6 cursor-pointer outline-none" type="checkbox"${
-          tasks[id].completed ? ' checked' : ''
-        }
-      >
+      <input id="check" class="ml-3" type="checkbox"${
+        tasks[id].completed ? ' checked' : ''
+      }>
       <label for="check" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none${
         tasks[id].completed ? ' text-gray-300 line-through' : ''
       }" style="padding: 18px 0;">
