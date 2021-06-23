@@ -4,7 +4,7 @@
 
 @layer base {
   [type="checkbox"] {
-    @apply w-6 h-6 rounded-lg text-honey border-gray-500 cursor-pointer focus:ring-0;
+    @apply w-6 h-6 rounded-lg text-primary border-gray-500 cursor-pointer focus:ring-0;
   }
 }
 

@@ -20,7 +20,8 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      honey: '#FFD370',
+
+      primary: '#FFD370',
 
       black: colors.black,
       white: colors.white,
