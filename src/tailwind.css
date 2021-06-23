@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  [type="checkbox"],
+  [type="radio"] {
+    @apply rounded-lg text-honey border-gray-500 focus:ring-0;
+  }
+}
+
 @layer components {
   .filter-active {
     @apply border-b-3 border-gray-600;
