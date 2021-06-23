@@ -71,13 +71,13 @@ tasksEl.onclick = e => {
   if (e.target.id === 'check') {
     toggleCompleteTask(e);
     let filter = getCurrentFilter();
-    if (tasks.length - getUnfinishedTaskNum() === 0) filter = '全部';
+    if (getUnfinishedTaskNum() === tasks.length) filter = '全部';
     updateBoard(filter);
   }
   if (e.target.id === 'delete') {
     if (confirm('確定刪除？')) deleteTask(e);
     let filter = getCurrentFilter();
-    if (tasks.length - getUnfinishedTaskNum() === 0) filter = '全部';
+    if (getUnfinishedTaskNum() === tasks.length) filter = '全部';
     updateBoard(filter);
   }
 };
