@@ -65,6 +65,18 @@ filtersEl.onclick = e => {
   }
 };
 
+// Toggle done and delete
+tasksEl.onclick = e => {
+  if (e.target.id === 'check') {
+    const filter = filterEls.filter(el =>
+      el.classList.contains('filter-active')
+    )[0].textContent;
+    toggleCompleteTask(e);
+    updateTasks(filter);
+    updateUnfinishedTaskNum();
+  }
+};
+
 /////////////////////////////////////////////////////////////////////////
 /////////////////////////////// Functions ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////
@@ -135,4 +147,9 @@ function addTask() {
   tasks = [...tasks, { task: inputText, completed: false }];
   taskInputEl.value = '';
   taskInputEl.focus();
+}
+
+function toggleCompleteTask(e) {
+  const idx = e.target.closest('li').id;
+  tasks[idx].completed = !tasks[idx].completed;
 }
