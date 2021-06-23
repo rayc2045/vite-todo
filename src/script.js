@@ -75,6 +75,16 @@ tasksEl.onclick = e => {
     updateTasks(filter);
     updateUnfinishedTaskNum();
   }
+  if (e.target.id === 'delete') {
+    let filter = filterEls.filter(el =>
+      el.classList.contains('filter-active')
+    )[0].textContent;
+    if (confirm('確定刪除？')) deleteTask(e);
+    if (!tasks.filter(task => task.completed).length) filter = '全部';
+    updateFilterState(filter);
+    updateTasks(filter);
+    updateUnfinishedTaskNum();
+  }
 };
 
 /////////////////////////////////////////////////////////////////////////
@@ -152,4 +162,9 @@ function addTask() {
 function toggleCompleteTask(e) {
   const idx = e.target.closest('li').id;
   tasks[idx].completed = !tasks[idx].completed;
+}
+
+function deleteTask(e) {
+  const idx = e.target.closest('li').id;
+  tasks.splice(idx, 1);
 }
