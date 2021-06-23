@@ -110,18 +110,12 @@ clearFinishedTasksBtn.onclick = () => {
 function updateTasks(filter = '全部') {
   let tasksHTML = '';
 
-  if (filter === '全部') {
-    for (const i in tasks) tasksHTML += getTaskHTML(i);
-  }
-
-  if (filter === '待完成') {
-    for (const i in tasks) {
+  for (const i in tasks) {
+    if (filter === '全部') tasksHTML += getTaskHTML(i);
+    if (filter === '待完成') {
       if (!tasks[i].completed) tasksHTML += getTaskHTML(i);
     }
-  }
-
-  if (filter === '已完成') {
-    for (const i in tasks) {
+    if (filter === '已完成') {
       if (tasks[i].completed) tasksHTML += getTaskHTML(i);
     }
   }
@@ -131,22 +125,19 @@ function updateTasks(filter = '全部') {
 
 function getTaskHTML(id) {
   return `
-		<li id="${id}" class="flex items-center">
-			<label class="ml-3">
-				<input id="check" class="mt-1 w-6 h-6 cursor-pointer focus:outline-none" type="checkbox" ${
-          tasks[id].completed ? 'checked' : ''
-        }>
-			</label>
-			<span id="content" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none ${
-        tasks[id].completed ? ' text-gray-300 line-through' : ''
-      }" style="padding: 18px 0;">
-				${tasks[id].task}
-			</span>
-			<button id="delete" class="ml-2 p-3 text-2xl text-gray-400 focus:outline-none ">
-				✕
-			</button>
-		</li>
-	`;
+    <li id="${id}" class="flex items-center">
+      <label class="ml-3">
+        <input id="check" class="mt-1 w-6 h-6 cursor-pointer focus:outline-none"
+        type="checkbox" ${tasks[id].completed ? 'checked' : ''}>
+      </label>
+      <span id="content" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none${tasks[id].completed ? ' text-gray-300 line-through' : ''}" style="padding: 18px 0;">
+        ${tasks[id].task}
+      </span>
+      <button id="delete" class="ml-2 p-3 text-2xl text-gray-400 focus:outline-none">
+        ✕
+      </button>
+    </li>
+  `;
 }
 
 function updateFilterState(filter = '全部') {
