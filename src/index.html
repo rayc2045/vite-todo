@@ -7,13 +7,13 @@
     <title>Vite Todo</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body
     class="min-h-screen flex justify-center text-gray-700 tracking-wider bg-honey"
-    style="font-size: 18px; background: linear-gradient(171deg, #ffd370 54%, white 46%)"
+    style="font-family: sans-serif; font-size: 18px; background: linear-gradient(171deg, #ffd370 54%, white 46%)"
   >
     <div class="my-20" style="width: 566px;">
       <!-- Title -->
@@ -27,7 +27,7 @@
       <div
         class="mb-3 flex items-center bg-white rounded-xl overflow-hidden shadow-2xl"
       >
-        <input id="task-input" class="pl-7 py-3 flex-grow focus:outline-none placeholder-gray-400" type="text" name="" placeholder="新增待辦事項" autofocus/>
+        <input id="task-input" class="pl-7 pr-4 py-3 flex-grow focus:outline-none placeholder-gray-400" type="text" name="" placeholder="新增待辦事項" autofocus/>
         <button id="add-task" class="mr-1 w-11 h-11 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
       </div>
       <!-- Tasks -->
@@ -42,7 +42,7 @@
 
         <div class="flex justify-between text-base">
           <p class="px-7 py-6 pb-8"><span id="unfinished-task-num"></span> 個待完成項目</p>
-          <button id="clear-finished-tasks" class="px-7 py-6 pb-8 pr-16 text-gray-300 transition hover:text-black focus:outline-none">清除已完成項目</button>
+          <button id="clear-finished-tasks" class="px-7 py-6 pb-8 pr-16 text-gray-300 transition hover:text-gray-700 focus:outline-none">清除已完成項目</button>
         </div>
       </div>
     </div>
