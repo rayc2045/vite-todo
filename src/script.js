@@ -44,15 +44,21 @@ updateUnfinishedTaskNum();
 // Add task
 taskInputEl.onkeydown = e => {
   if (e.key === 'Enter') {
+    let filter = getCurrentFilter();
+    if (filter === '已完成') filter = '全部';
     addTask();
-    updateTasks();
+    updateFilterState(filter);
+    updateTasks(filter);
     updateUnfinishedTaskNum();
   }
 };
 
 addTaskBtn.onclick = () => {
+  let filter = getCurrentFilter();
+  if (filter === '已完成') filter = '全部';
   addTask();
-  updateTasks();
+  updateFilterState(filter);
+  updateTasks(filter);
   updateUnfinishedTaskNum();
 };
 
@@ -68,19 +74,17 @@ filtersEl.onclick = e => {
 // Toggle done and delete
 tasksEl.onclick = e => {
   if (e.target.id === 'check') {
-    const filter = filterEls.filter(el =>
-      el.classList.contains('filter-active')
-    )[0].textContent;
     toggleCompleteTask(e);
+    let filter = getCurrentFilter();
+    if (!getUnfinishedTaskNum()) filter = '全部';
+    updateFilterState(filter);
     updateTasks(filter);
     updateUnfinishedTaskNum();
   }
   if (e.target.id === 'delete') {
-    let filter = filterEls.filter(el =>
-      el.classList.contains('filter-active')
-    )[0].textContent;
     if (confirm('確定刪除？')) deleteTask(e);
-    if (!tasks.filter(task => task.completed).length) filter = '全部';
+    let filter = getCurrentFilter();
+    if (!getUnfinishedTaskNum()) filter = '全部';
     updateFilterState(filter);
     updateTasks(filter);
     updateUnfinishedTaskNum();
@@ -90,16 +94,9 @@ tasksEl.onclick = e => {
 // Clear finished
 clearFinishedTasksBtn.onclick = () => {
   if (confirm('確定移除完成的任務？')) {
-    let filter = filterEls.filter(el =>
-      el.classList.contains('filter-active')
-    )[0].textContent;
-
     clearFinishedTasks();
-
-    if (filter === '已完成') {
-      updateFilterState();
-      updateTasks();
-    }
+    if (getCurrentFilter() === '已完成') updateFilterState();
+    updateTasks();
   }
 };
 
@@ -121,6 +118,7 @@ function updateTasks(filter = '全部') {
   }
 
   tasksEl.innerHTML = tasksHTML;
+  taskInputEl.focus();
 }
 
 function getTaskHTML(id) {
@@ -130,7 +128,9 @@ function getTaskHTML(id) {
         <input id="check" class="mt-1 w-6 h-6 cursor-pointer focus:outline-none"
         type="checkbox" ${tasks[id].completed ? 'checked' : ''}>
       </label>
-      <span id="content" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none${tasks[id].completed ? ' text-gray-300 line-through' : ''}" style="padding: 18px 0;">
+      <span id="content" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none${
+        tasks[id].completed ? ' text-gray-300 line-through' : ''
+      }" style="padding: 18px 0;">
         ${tasks[id].task}
       </span>
       <button id="delete" class="ml-2 p-3 text-2xl text-gray-400 focus:outline-none">
@@ -152,10 +152,17 @@ function updateFilterState(filter = '全部') {
   });
 }
 
+function getCurrentFilter() {
+  return filterEls.filter(el => el.classList.contains('filter-active'))[0]
+    .textContent;
+}
+
 function updateUnfinishedTaskNum() {
-  unfinishedTaskNumEl.textContent = tasks.filter(
-    task => !task.completed
-  ).length;
+  unfinishedTaskNumEl.textContent = getUnfinishedTaskNum();
+}
+
+function getUnfinishedTaskNum() {
+  return tasks.filter(task => !task.completed).length;
 }
 
 function addTask() {
@@ -163,7 +170,6 @@ function addTask() {
   if (!inputText) return;
   tasks = [...tasks, { task: inputText, completed: false }];
   taskInputEl.value = '';
-  taskInputEl.focus();
 }
 
 function toggleCompleteTask(e) {
