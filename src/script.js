@@ -140,7 +140,7 @@ function getTaskHTML(id) {
   return `
     <li id="${id}" class="flex items-center group">
       <label class="px-3 py-4 cursor-pointer">
-        <input id="check" type="checkbox"
+        <input id="check" class="-mt-1" type="checkbox"
         ${tasks[id].completed ? ' checked' : ''}>
       </label>
       <div class="ml-1 flex-grow cursor-text
