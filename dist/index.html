@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.17e50649.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite Todo</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  <script type="module" crossorigin src="/assets/index.2e4cb54c.js"></script>
+  <link rel="stylesheet" href="/assets/index.198bcfb0.css">
+</head>
+  <body
+    class="px-4 md:px-0 min-h-screen flex justify-center text-gray-700 tracking-wider bg-primary"
+    style="font-family: sans-serif; font-size: 18px; background: linear-gradient(171deg, #ffd370 54%, white 46%)"
+  >
+    <div class="transform scale-90 md:scale-100" style="width: 566px;">
+      <!-- Title -->
+      <h1
+        class="mt-2 mb-6 md:mt-20 md:mb-12 uppercase text-center text-4xl md:text-5xl font-bold"
+        style="font-family: 'Baloo Tamma 2', sans-serif; letter-spacing: 13px;"
+      >
+        Todo List
+      </h1>
+      <!-- Input -->
+      <div
+        class="mb-3 flex items-center bg-white rounded-xl overflow-hidden shadow-2xl"
+      >
+        <input id="task-input" class="pl-7 pr-4 py-3 flex-grow border-none focus:ring-0 placeholder-gray-400" type="text" placeholder="新增待辦事項" autofocus/>
+        <button id="add-task" class="mr-1 w-11 h-11 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
+      </div>
+      <!-- Tasks -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-2xl">
+        <ul id="filters" class="flex text-center text-base font-bold">
+          <li class="py-4 flex-grow cursor-pointer filter-active">全部</li>
+          <li class="py-4 flex-grow cursor-pointer filter-inactive">待完成</li>
+          <li class="py-4 flex-grow cursor-pointer filter-inactive">已完成</li>
+        </ul>
+
+        <ul id="tasks" class="px-4 py-1"></ul>
+
+        <div class="flex justify-between text-base">
+          <p class="px-8 py-6 pb-8"><span id="unfinished-task-num"></span> 個待完成項目</p>
+          <button id="clear-finished-tasks" class="px-8 py-6 pb-8 pr-10 text-gray-300 transition hover:text-gray-700 focus:outline-none">清除已完成項目</button>
+        </div>
+      </div>
+    </div>
+
+    
+  </body>
+</html>
