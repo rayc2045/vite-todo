@@ -16,3 +16,4 @@
 - 透過 [Tailwind Forms Plugin](https://github.com/tailwindlabs/tailwindcss-forms) 實現客製化勾選框 (checkbox)
 - 使用箭頭函式、三元運算子、forEach、filter 等 ES6+ Vanilla JS 開發功能
 - 使用 [Prettier](https://prettier.io/) 格式化程式碼，保持程式的整齊和一致性
+- 使用 [Netlify](https://www.netlify.com) 部署網站
