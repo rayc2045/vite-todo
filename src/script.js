@@ -172,7 +172,7 @@ function getUnfinishedTaskNum() {
 
 function addTask() {
   const inputText = taskInputEl.value.trim();
-  if (!inputText) return;
+  if (!inputText) return (taskInputEl.value = '');
   tasks = [...tasks, { task: inputText, completed: false }];
   taskInputEl.value = '';
 }
