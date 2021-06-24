@@ -70,21 +70,24 @@ filtersEl.onclick = e => {
 tasksEl.onclick = e => {
   if (e.target.id === 'check') {
     toggleCompleteTask(e);
-    const filter = getCurrentFilter();
+    let filter = getCurrentFilter();
     if (
       (filter === '待完成' && !getUnfinishedTaskNum()) ||
       (filter === '已完成' && getUnfinishedTaskNum() === tasks.length)
     )
-      updateBoard();
+      filter = '全部';
+    updateBoard(filter);
   }
+
   if (e.target.id === 'delete') {
     if (confirm('確定刪除？')) deleteTask(e);
-    const filter = getCurrentFilter();
+    let filter = getCurrentFilter();
     if (
       (filter === '待完成' && !getUnfinishedTaskNum()) ||
       (filter === '已完成' && getUnfinishedTaskNum() === tasks.length)
     )
-      updateBoard();
+      filter = '全部';
+    updateBoard(filter);
   }
 };
 
