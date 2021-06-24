@@ -33,16 +33,16 @@
       <!-- Tasks -->
       <div class="bg-white rounded-xl overflow-hidden shadow-2xl">
         <ul id="filters" class="flex text-center text-base font-bold">
-          <li class="py-4 flex-grow cursor-pointer filter-active">全部</li>
-          <li class="py-4 flex-grow cursor-pointer filter-inactive">待完成</li>
-          <li class="py-4 flex-grow cursor-pointer filter-inactive">已完成</li>
+          <li class="py-4 flex-grow cursor-pointer filter-active transition duration-75">全部</li>
+          <li class="py-4 flex-grow cursor-pointer filter-inactive transition duration-75">待完成</li>
+          <li class="py-4 flex-grow cursor-pointer filter-inactive transition  duration-75">已完成</li>
         </ul>
 
         <ul id="tasks" class="px-4 py-1"></ul>
 
         <div class="flex justify-between text-base">
           <p class="px-8 py-6 pb-8"><span id="unfinished-task-num"></span> 個待完成項目</p>
-          <button id="clear-finished-tasks" class="px-8 py-6 pb-8 pr-10 text-gray-300 transition hover:text-gray-700 focus:outline-none">清除已完成項目</button>
+          <button id="clear-finished-tasks" class="px-8 py-6 pb-8 pr-10 text-gray-300 transition duration-75 hover:text-gray-700 focus:outline-none">清除已完成項目</button>
         </div>
       </div>
     </div>
