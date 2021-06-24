@@ -134,7 +134,6 @@ function updateTasks(filter = '全部') {
   }
 
   tasksEl.innerHTML = tasksHTML;
-  taskInputEl.focus();
 }
 
 function getTaskHTML(id) {
