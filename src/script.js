@@ -3,10 +3,13 @@
 const taskInputEl = document.querySelector('#task-input');
 const addTaskBtn = document.querySelector('#add-task');
 const filtersEl = document.querySelector('#filters');
-const filterEls = [...filtersEl.childNodes].filter(el => el.nodeName === 'LI');
+const filterEls = [...filtersEl.childNodes].filter(
+  el => !el.nodeName.includes('#')
+);
 const tasksEl = document.querySelector('#tasks');
 const unfinishedTaskNumEl = document.querySelector('#unfinished-task-num');
 const clearFinishedTasksBtn = document.querySelector('#clear-finished-tasks');
+
 let tasks = getLocalStorage('vite-todo') || [
   {
     task: '把冰箱發霉的檸檬拿去丟',
