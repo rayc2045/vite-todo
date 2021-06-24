@@ -1,8 +1,8 @@
 # Vite Todo
 
-[![Photo](https://raw.githubusercontent.com/rayc2045/vite-todo/master/src/demo.png)]()
+[![Photo](https://raw.githubusercontent.com/rayc2045/vite-todo/master/src/demo.png)](https://vite-todo.netlify.app/)
 
-[> Vite Todo]() / [設計稿](https://hexschool.github.io/js-todo/)
+[> Vite Todo](https://vite-todo.netlify.app/) / [設計稿](https://hexschool.github.io/js-todo/)
 
 ### 外觀與互動設計
 - 使用圓體無襯線字體 [Baloo Tamma 2](https://fonts.google.com/specimen/Baloo+Tamma+2) 作為標題字體
