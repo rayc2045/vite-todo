@@ -7,7 +7,7 @@ const filterEls = [...filtersEl.childNodes].filter(el => el.nodeName === 'LI');
 const tasksEl = document.querySelector('#tasks');
 const unfinishedTaskNumEl = document.querySelector('#unfinished-task-num');
 const clearFinishedTasksBtn = document.querySelector('#clear-finished-tasks');
-let tasks = [
+let tasks = getLocalStorage('vite-todo') || [
   {
     task: '把冰箱發霉的檸檬拿去丟',
     completed: false,
@@ -48,6 +48,7 @@ taskInputEl.onkeydown = e => {
     if (filter === '已完成') filter = '全部';
     addTask();
     updateBoard(filter);
+    setLocalStorage('vite-todo', tasks);
   }
 };
 
@@ -56,6 +57,7 @@ addTaskBtn.onclick = () => {
   if (filter === '已完成') filter = '全部';
   addTask();
   updateBoard(filter);
+  setLocalStorage('vite-todo', tasks);
 };
 
 // Update filter state/tasks
@@ -71,11 +73,14 @@ tasksEl.onclick = e => {
   if (e.target.id === 'check') {
     toggleCompleteTask(e);
     updateBoardIfNoTasksInFilter();
+    setLocalStorage('vite-todo', tasks);
   }
 
   if (e.target.id === 'delete') {
     if (confirm('確定刪除？')) deleteTask(e);
     updateBoardIfNoTasksInFilter();
+    if (tasks.length) return setLocalStorage('vite-todo', tasks);
+    removeFromLocalStorage('vite-todo');
   }
 };
 
@@ -85,6 +90,8 @@ clearFinishedTasksBtn.onclick = () => {
     clearFinishedTasks();
     if (getCurrentFilter() === '已完成') updateFilterState();
     updateTasks();
+    if (tasks.length) return setLocalStorage('vite-todo', tasks);
+    removeFromLocalStorage('vite-todo');
   }
 };
 
@@ -189,4 +196,16 @@ function deleteTask(e) {
 
 function clearFinishedTasks() {
   tasks = tasks.filter(task => !task.completed);
+}
+
+function getLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+function setLocalStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function removeFromLocalStorage(key) {
+  localStorage.removeItem(key);
 }
