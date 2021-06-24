@@ -140,18 +140,19 @@ function updateTasks(filter = '全部') {
 function getTaskHTML(id) {
   return `
     <li id="${id}" class="flex items-center group">
-      <input id="check" class="ml-3" type="checkbox"
-        ${tasks[id].completed ? ' checked' : ''}
-      >
-      <label for="check" class="ml-4 flex-grow cursor-text
+      <label class="px-3 py-4 cursor-pointer">
+        <input id="check" type="checkbox"
+        ${tasks[id].completed ? ' checked' : ''}>
+      </label>
+      <div class="ml-1 flex-grow cursor-text
         border-b-2 border-gray-100 focus:outline-none
         ${tasks[id].completed ? ' text-gray-300 line-through' : ''}
         ${!tasks[id].task.includes(' ') ? ' break-all' : ''}"
         style="padding: 18px 0;"
       >
         ${tasks[id].task}
-      </label>
-      <button id="delete" class="ml-2 p-3 text-2xl text-gray-400
+      </div>
+      <button id="delete" class="ml-2 px-3 py-4 text-2xl text-gray-400
         lg:text-transparent lg:group-hover:text-gray-400
         focus:outline-none transition duration-75"
       >
