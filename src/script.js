@@ -143,9 +143,12 @@ function getTaskHTML(id) {
       <input id="check" class="ml-3" type="checkbox"${
         tasks[id].completed ? ' checked' : ''
       }>
-      <label for="check" class="ml-4 border-b-2 flex-grow cursor-text border-gray-100 focus:outline-none${
-        tasks[id].completed ? ' text-gray-300 line-through' : ''
-      }" style="padding: 18px 0;">
+      <label for="check" class="ml-4 flex-grow cursor-text
+        border-b-2 border-gray-100 focus:outline-none
+        ${tasks[id].completed ? ' text-gray-300 line-through' : ''}
+        ${!tasks[id].task.includes(' ') ? ' break-all' : ''}"
+        style="padding: 18px 0;"
+      >
         ${tasks[id].task}
       </label>
       <button id="delete" class="ml-2 p-3 text-2xl text-gray-400 lg:text-transparent lg:group-hover:text-gray-400 focus:outline-none transition duration-75">
