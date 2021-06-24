@@ -11,6 +11,7 @@
 - 使用圓體無襯線字體 [Baloo Tamma 2](https://fonts.google.com/specimen/Baloo+Tamma+2) 作為標題字體
 - 使用深灰而非黑色字體以達到閱讀和諧
 - 每次更新觸發輸入框的集中 (focus)，省去額外點擊
+- 將連字段落 (`THISISAPARAGRAPHWITHOUTSPACE`) 強制打斷，維持待辦清單外觀的一致性
 - 完成勾選所有任務，或是清除所有已完成任務後，自動回到「全部」任務區塊中
 
 ### 開發紀錄
