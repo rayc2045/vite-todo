@@ -10,10 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@700&display=swap"
       rel="stylesheet"
     />
-  <script type="module" crossorigin src="/assets/index.5c78946c.js"></script>
-  <link rel="stylesheet" href="/assets/index.a14feea3.css">
+  <script type="module" crossorigin src="/assets/index.207b4c3b.js"></script>
+  <link rel="stylesheet" href="/assets/index.5d895162.css">
 </head>
-  <body class="min-h-screen flex justify-center text-lg text-gray-700 tracking-wider bg-primary" style="font-family: sans-serif; background: linear-gradient(171deg, #ffd370 54%, white 46%)"
+  <body class="min-h-screen flex justify-center md:text-lg text-gray-700 tracking-wide md:tracking-wider bg-primary" style="font-family: sans-serif; background: linear-gradient(171deg, #ffd370 54%, white 46%)"
   >
     <div class="md:mb-20 transform scale-90 md:scale-100" style="width: 566px;">
       <!-- Title -->
@@ -27,12 +27,12 @@
       <div
         class="mb-3 flex items-center bg-white rounded-xl overflow-hidden shadow-2xl"
       >
-        <input id="task-input" class="pl-7 pr-4 py-3 flex-grow text-lg tracking-wider border-none focus:ring-0 placeholder-gray-400" type="text" placeholder="新增待辦事項" autofocus/>
+        <input id="task-input" class="pl-7 pr-4 py-3 flex-grow md:text-lg tracking-wide md:tracking-wider border-none focus:ring-0 placeholder-gray-400" type="text" placeholder="新增待辦事項" autofocus/>
         <button id="add-task" class="mr-1 w-11 h-11 text-3xl text-white bg-gray-800 rounded-xl focus:outline-none">＋</button>
       </div>
       <!-- Tasks -->
       <div class="bg-white rounded-xl overflow-hidden shadow-2xl">
-        <ul id="filters" class="flex text-center text-base font-bold">
+        <ul id="filters" class="flex text-center font-bold">
           <li class="py-4 flex-grow cursor-pointer filter-active transition duration-75">全部</li>
           <li class="py-4 flex-grow cursor-pointer filter-inactive transition duration-75">待完成</li>
           <li class="py-4 flex-grow cursor-pointer filter-inactive transition  duration-75">已完成</li>
@@ -40,7 +40,7 @@
 
         <ul id="tasks" class="px-4 py-1"></ul>
 
-        <div class="flex justify-between text-base">
+        <div class="flex justify-between tracking-normal sm:tracking-wide">
           <p class="px-8 py-6 pb-8"><span id="unfinished-task-num"></span> 個待完成項目</p>
           <button id="clear-finished-tasks" class="px-8 py-6 pb-8 pr-10 text-gray-300 transition duration-75 hover:text-gray-700 focus:outline-none">清除已完成項目</button>
         </div>
