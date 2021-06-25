@@ -74,13 +74,17 @@ filtersEl.onclick = e => {
 // Toggle done and delete
 tasksEl.onclick = e => {
   if (e.target.id === 'check') {
-    toggleCompleteTask(e);
+    const idx = e.target.closest('li').id;
+    toggleCompleteTask(idx);
     updateBoardIfNoTasksInFilter();
     setLocalStorage('vite-todo', tasks);
   }
 
   if (e.target.id === 'delete') {
-    if (confirm('確定刪除？')) deleteTask(e);
+    if (confirm('確定刪除？')) {
+      const idx = e.target.closest('li').id;
+      deleteTask(idx);
+    }
     updateBoardIfNoTasksInFilter();
     if (tasks.length) return setLocalStorage('vite-todo', tasks);
     removeFromLocalStorage('vite-todo');
@@ -193,13 +197,11 @@ function addTask() {
   taskInputEl.value = '';
 }
 
-function toggleCompleteTask(e) {
-  const idx = e.target.closest('li').id;
+function toggleCompleteTask(idx) {
   tasks[idx].completed = !tasks[idx].completed;
 }
 
-function deleteTask(e) {
-  const idx = e.target.closest('li').id;
+function deleteTask(idx) {
   tasks.splice(idx, 1);
 }
 
