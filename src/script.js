@@ -149,8 +149,9 @@ function getTaskHTML(id) {
       </label>
       <div class="ml-1 flex-grow cursor-text
         border-b-2 border-gray-100 focus:outline-none
-        ${tasks[id].completed ? ' text-gray-300 line-through' : ''}
-        ${!tasks[id].task.includes(' ') ? ' break-all' : ''}"
+        ${tasks[id].completed ? ' line-through text-gray-300 filter grayscale' : ''}
+        ${!tasks[id].task.includes(' ') ? ' break-all' : ''}
+        overflow-x-hidden"
         style="padding: 18px 0;"
       >
         ${tasks[id].task}
