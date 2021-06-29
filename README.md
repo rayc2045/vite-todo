@@ -22,7 +22,7 @@
 - 透過 [Purge 過濾未使用的 CSS](https://tailwindcss.com/docs/optimizing-for-production#removing-unused-css)，優化專案打包
 - 透過官方插件 [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) 實現客製化勾選框 (checkbox)
 - 使用 `dataset` 標記任務 id
-- 使用箭頭函式、三元運算子、forEach、filter 等 ES6+ Vanilla JS 開發功能
+- 使用箭頭函式、三元運算子、forEach、filter、find 等 ES6+ Vanilla JS 開發功能
 - 加入 Local Storage 儲存功能，關掉瀏覽器也不怕任務丟失
 - 使用 [Prettier](https://prettier.io/) 格式化程式碼，保持程式的整齊和一致性
 - 使用 [Netlify](https://www.netlify.com) 部署網站
