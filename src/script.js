@@ -75,7 +75,7 @@ filtersEl.onclick = e => {
 // Toggle done and delete
 tasksEl.onclick = e => {
   if (e.target.id === 'check') {
-    const idx = e.target.closest('li').id;
+    const idx = e.target.closest('li').dataset.id;
     toggleCompleteTask(idx);
     updateBoardIfNoTasksInFilter();
     setLocalStorage('vite-todo', tasks);
@@ -83,7 +83,7 @@ tasksEl.onclick = e => {
 
   if (e.target.id === 'delete') {
     if (confirm('確定刪除？')) {
-      const idx = e.target.closest('li').id;
+      const idx = e.target.closest('li').dataset.id;
       deleteTask(idx);
     }
     updateBoardIfNoTasksInFilter();
@@ -143,7 +143,7 @@ function updateTasks(filter = '全部') {
 
 function getTaskHTML(id) {
   return `
-    <li id="${id}" class="flex items-center group">
+    <li class="flex items-center group" data-id="${id}">
       <label class="px-3 py-4 cursor-pointer">
         <input id="check" class="-mt-1" type="checkbox"
         ${tasks[id].completed ? ' checked' : ''}>
