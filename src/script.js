@@ -41,6 +41,7 @@ let tasks = getLocalStorage('vite-todo') || [
   },
 ];
 
+// init
 updateTasks();
 updateUnfinishedTaskNum();
 
