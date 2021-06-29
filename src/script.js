@@ -180,8 +180,7 @@ function updateFilterState(filter = '全部') {
 }
 
 function getCurrentFilter() {
-  return filterEls.filter(el => el.classList.contains('filter-active'))[0]
-    .textContent;
+  return filterEls.find(el => el.classList.contains('filter-active')).textContent;
 }
 
 function updateUnfinishedTaskNum() {
