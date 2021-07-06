@@ -5,7 +5,7 @@
 [> Vite Todo](https://vite-todo.netlify.app/) / [設計稿](https://hexschool.github.io/js-todo/)
 
 ### 簡介
-這次的專案為六角學院在 2021 年疫情期間舉辦的「程式體驗營」最終作業，其中使用了最近接觸的 Vite 作為專案開發和打包的工具，以及因為對 Utility-First CSS 頗感興趣，因此將 Tailwind 納入專案並初次使用它做開發。
+這次的專案為六角學院在 2021 年疫情期間舉辦的「程式體驗營」最終作業，其中使用了最近接觸的 Vite 作為專案開發和打包的工具，以及因為對 Utility-First CSS 頗感興趣，將 Tailwind 納入專案並初次使用它做開發。
 
 ### 外觀與互動設計
 - 使用圓體無襯線字體 [Baloo Tamma 2](https://fonts.google.com/specimen/Baloo+Tamma+2) 作為標題字體
