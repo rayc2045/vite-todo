@@ -1,6 +1,6 @@
 # Vite Todo
 
-[![Photo](https://raw.githubusercontent.com/rayc2045/vite-todo/master/src/image/production.png)](https://vite-todo.netlify.app/)
+![Photo](https://raw.githubusercontent.com/rayc2045/vite-todo/master/src/image/production.png)
 
 [> Vite Todo](https://vite-todo.netlify.app/) / [設計稿](https://hexschool.github.io/js-todo/)
 
