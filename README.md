@@ -1,4 +1,4 @@
-# Vite Todo
+# Vite Todo｜使用 Vite 和 Tailwind 打造的待辦事項清單
 
 ![Photo](https://raw.githubusercontent.com/rayc2045/vite-todo/master/src/image/production.png)
 
